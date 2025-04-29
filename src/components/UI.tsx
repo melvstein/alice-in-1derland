@@ -2,6 +2,7 @@ import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
 import AliceInOnederland from "./AliceInOnederland";
 import { FaAngleLeft, FaAngleRight, FaCircle } from "react-icons/fa6";
+import SoundTrackDisc from "./SoundTrackDisc";
 
 const pictures = [
     "bg1",
@@ -65,9 +66,12 @@ export const UI = () => {
     return (
         <>
             <main className="pointer-events-none select-none z-10 fixed inset-0 flex justify-between flex-col">
-                <a className="pointer-events-auto p-4">
-                    <AliceInOnederland />
-                </a>
+                <div className="w-full pointer-events-auto px-6 py-4 flex items-center justify-between">
+                    <a className="cursor-pointer flex items-center justify-center">
+                        <AliceInOnederland />
+                    </a>
+                    <SoundTrackDisc />
+                </div>
                 <div className="w-full overflow-auto pointer-events-auto flex justify-center">
                     <div className="overflow-auto flex items-center justify-between gap-2 max-w-full py-4">
                         {[...pages].map((_, index) => {
