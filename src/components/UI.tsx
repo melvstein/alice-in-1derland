@@ -1,14 +1,21 @@
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
 import AliceInOnederland from "./AliceInOnederland";
+import { FaAngleLeft, FaAngleRight, FaCircle } from "react-icons/fa6";
 
 const pictures = [
     "bg1",
     "redqueen_invite",
     "bg2",
-    "bg3",
+    "follow_white_rabbit",
     "bg4",
     "tea_and_time",
+    "bg5",
+    "theme_color_attire",
+    "bg6",
+    "god_parents",
+    "bg7",
+    "locations",
     /*"DSC00680",
     "DSC00933",
     "DSC00966",
@@ -64,14 +71,23 @@ export const UI = () => {
                 <div className="w-full overflow-auto pointer-events-auto flex justify-center">
                     <div className="overflow-auto flex items-center justify-between gap-2 max-w-full py-4">
                         {[...pages].map((_, index) => {
+                            let button;
+
+                            if (index === 0) {
+                                button = <FaAngleLeft />;
+                            } else if (index !== pages.length - 1) {
+                                button = <FaCircle />;
+                            } else {
+                                button = <FaAngleRight />;
+                            }
 
                             return (
                                 <button
                                     key={index}
-                                    className={`border-transparent hover:border-white transition-all duration-300 px-4 py-3 rounded-full text-lg uppercase shrink-0 border ${index === page ? "bg-white/90 text-black" : "bg-black/30 text-white"}`}
+                                    className={`border-transparent hover:border-white transition-all duration-300 p-2 rounded-full text-lg uppercase shrink-0 border ${index === page ? "bg-white/90 text-black" : "bg-black/30 text-white"}`}
                                     onClick={() => setPage(index)}
                                 >
-                                    { index === 0 ? "Cover" : `Page ${index}` }
+                                    { button }
                                 </button>
                             )
                         })}
