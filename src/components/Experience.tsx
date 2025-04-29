@@ -1,4 +1,4 @@
-import { Environment, Float, Html, OrbitControls } from "@react-three/drei"
+import { Float, OrbitControls } from "@react-three/drei"
 import { Book } from "./Book"
 
 
